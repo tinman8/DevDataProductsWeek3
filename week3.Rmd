@@ -1,0 +1,37 @@
+---
+title: "Week 3 Assignment"
+author: "TI"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The Data
+
+This presentation will utilize the `mtcars` data to showcase the `plotly` package.
+
+```{r, message=FALSE, echo=TRUE}
+library(plotly)
+data <- datasets::mtcars
+
+fig <- plot_ly(
+    data = data, 
+    x = ~hp, 
+    y = ~mpg, 
+    color = ~disp, 
+    size = ~cyl, 
+    type = "scatter", 
+    mode = "markers",
+    text = rownames(data)
+)
+```
+
+## MPG compared to Horespower, Engine Displacement and Cylinder Quantity
+
+```{r, message = FALSE, warning=FALSE}
+fig
+
+```
